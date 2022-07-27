@@ -1,0 +1,127 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="400" height="300"></canvas>
+    <canvas width="400" height="300"></canvas>
+    <button>Save</button>
+    <button>clear</button>
+    <script>
+
+
+
+
+        let c = document.querySelectorAll(`canvas`);
+        let s = document.querySelectorAll(`button`);
+
+        let mouse ={x:0, y:0};
+        let drawing = false;
+
+        for(let i=0; i<c.length; i++)
+        {
+            c[i].addEventListener(`mousemove`, moveM)
+            c[i].addEventListener(`touchmove`, moveT)
+            c[i].addEventListener(`mousedown`, draw); 
+            c[i].addEventListener(`touchstart`, draw); 
+            c[i].addEventListener(`mouseup`, end); 
+            c[i].addEventListener(`touchend`, end); 
+
+        }
+       
+        function moveM(evt)
+        {
+            let tempC = evt.target
+            var rect = tempC.getBoundingClientRect();
+            let ctx = tempC.getContext(`2d`);
+            mouse = {x:evt.clientX - rect.left, y:evt.clientY - rect.top}
+            console.log(mouse)
+
+            if(drawing)
+            {
+                ctx.lineStyle = `black`;
+                ctx.lineWidth = 2;
+                
+                ctx.lineTo(mouse.x, mouse.y)
+                ctx.stroke();
+            }
+            
+    
+        }
+
+        function moveT(evt)
+        {
+            let tempC = evt.target
+            var rect = tempC.getBoundingClientRect();
+            let ctx = tempC.getContext(`2d`);
+            mouse.x = evt.targetTouches[0].clientX - rect.left
+            mouse.y = evt.targetTouches[0].clientY - rect.top
+            console.log(evt.targetTouches)
+
+            if(drawing)
+            {
+                ctx.lineStyle = `black`;
+                ctx.lineWidth = 2;
+                
+                ctx.lineTo(mouse.x, mouse.y)
+                ctx.stroke();
+            }
+            
+    
+        }
+
+        function draw(evt)
+        { 
+                let tempC = evt.target
+                var rect = tempC.getBoundingClientRect();
+                let ctx = tempC.getContext(`2d`);
+                if(evt.targetTouches)
+                {
+                    let rect = tempC.getBoundingClientRect();
+                    mouse.x = evt.targetTouches[0].clientX - rect.left
+                    mouse.y = evt.targetTouches[0].clientY - rect.top
+                }
+                    drawing = true;
+                    ctx.moveTo(mouse.x, mouse.y)
+                    ctx.save();
+                    ctx.beginPath();
+       
+        }
+
+        function end(evt)
+        {    
+            let tempC = evt.target
+            var rect = tempC.getBoundingClientRect();
+            let ctx = tempC.getContext(`2d`);
+            drawing = false;
+            ctx.closePath();
+            ctx.restore();           
+        }
+
+        s[0].addEventListener(`click`, saveIt)
+
+        function saveIt(evt)
+        {
+            var image = c[0].toDataURL("image/png").replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
+            console.log(image)
+            window.location.href=image; // it will save locally
+        }
+
+        s[1].addEventListener(`click`, (evt)=>{
+            c[0].getContext(`2d`).clearRect(0,0,c[0].width, c[0].height);
+        })
+
+
+
+    </script>
+</body>
+</html> -->

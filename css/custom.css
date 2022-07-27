@@ -1,0 +1,355 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+body, html{
+  font-family: 'Lato' !important;
+}
+
+footer div{
+    height: 50px;
+}
+
+.tableRow:nth-child(even){
+    background-color: #555555;
+}
+
+.marginL{
+    margin-left: 2px;
+}
+.marginR{
+    margin-right: 2px;
+}
+
+.sameAsDelivery{
+    height: 24px;
+}
+
+.itemDisabled:nth-child(2n){
+    background-color: #555555;
+    color: #FFFFFF;
+}
+.itemDisabled:nth-child(2n-1){
+    background-color: #373737;
+    color: #FFFFFF;
+}
+
+.inputDisabled{
+    background-color: #555555;
+    color: #FFFFFF;
+}
+
+.inputActive{
+    background-color: #FFFFFF;
+    color: #373737;
+}
+
+.deleteItemLink{
+    cursor: pointer;
+}
+
+.psiItem{
+    height: 12%;
+}
+
+.psiColumn{
+    width: 30%;
+}
+
+.tableLight{
+    background-color: #555555;
+}
+.tableDark{
+    background-color: #373737;
+}
+/**/
+.topDivs{
+    width: 20%;
+}
+
+#comment{
+  height: 100px;
+}
+
+
+/* The container */
+.yesCheckboxContainer {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .yesCheckboxContainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .yesCheckmark {
+    position: absolute;
+    top: 0px;
+    left: 17%;
+    height: 25px;
+    width: 25px;
+    background-color: #FFFFFF;
+    border: 2px solid #ff6700;
+    border-radius: 5px;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .yesCheckboxContainer:hover input ~ .yesCheckmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .yesCheckboxContainer input:checked ~ .yesCheckmark {
+    background-color: #ff6700;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .yesCheckmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .yesCheckboxContainer input:checked ~ .yesCheckmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .yesCheckboxContainer .yesCheckmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+
+  /* The container */
+.naCheckboxContainer {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .naCheckboxContainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .naCheckmark {
+    position: absolute;
+    top: 0px;
+    left: 17%;
+    height: 25px;
+    width: 25px;
+    background-color: #FFFFFF;
+    border: 2px solid #0098FF;
+    border-radius: 5px;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .naCheckboxContainer:hover input ~ .naCheckmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .naCheckboxContainer input:checked ~ .naCheckmark {
+    background-color: #0098FF;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .naCheckmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .naCheckboxContainer input:checked ~ .naCheckmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .naCheckboxContainer .naCheckmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+
+
+/* The container */
+.yesRadioContainer {
+display: block;
+position: relative;
+padding-left: 35px;
+margin-bottom: 12px;
+cursor: pointer;
+font-size: 22px;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.yesRadioContainer input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+height: 0;
+width: 0;
+}
+
+/* Create a custom checkbox */
+.yesRadio {
+position: absolute;
+top: 10%;
+left: 0px;
+height: 25px;
+width: 25px;
+background-color: #FFFFFF;
+border: 2px solid #ff6700;
+border-radius: 5px;
+}
+
+/* On mouse-over, add a grey background color */
+.yesRadioContainer:hover input ~ .yesRadio {
+background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.yesRadioContainer input:checked ~ .yesRadio {
+background-color: #ff6700;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.yesRadio:after {
+content: "";
+position: absolute;
+display: none;
+}
+
+/* Show the checkmark when checked */
+.yesRadioContainer input:checked ~ .yesRadio:after {
+display: block;
+}
+
+/* Style the checkmark/indicator */
+.yesRadioContainer .yesRadio:after {
+left: 9px;
+top: 5px;
+width: 5px;
+height: 10px;
+border: solid white;
+border-width: 0 3px 3px 0;
+-webkit-transform: rotate(45deg);
+-ms-transform: rotate(45deg);
+transform: rotate(45deg);
+}
+
+
+/* The container */
+.naRadioContainer {
+display: block;
+position: relative;
+padding-left: 35px;
+margin-bottom: 12px;
+cursor: pointer;
+font-size: 22px;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.naRadioContainer input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+height: 0;
+width: 0;
+}
+
+/* Create a custom checkbox */
+.naRadio {
+position: absolute;
+top: 10%;
+left: 0px;
+height: 25px;
+width: 25px;
+background-color: #FFFFFF;
+border: 2px solid #0098FF;
+border-radius: 5px;
+}
+
+/* On mouse-over, add a grey background color */
+.naRadioContainer:hover input ~ .naRadio {
+background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.naRadioContainer input:checked ~ .naRadio {
+background-color: #0098FF;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.naRadio:after {
+content: "";
+position: absolute;
+display: none;
+}
+
+/* Show the checkmark when checked */
+.naRadioContainer input:checked ~ .naRadio:after {
+display: block;
+}
+
+/* Style the checkmark/indicator */
+.naRadioContainer .naRadio:after {
+left: 9px;
+top: 5px;
+width: 5px;
+height: 10px;
+border: solid white;
+border-width: 0 3px 3px 0;
+-webkit-transform: rotate(45deg);
+-ms-transform: rotate(45deg);
+transform: rotate(45deg);
+}
