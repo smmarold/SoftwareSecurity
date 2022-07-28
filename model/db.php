@@ -4,7 +4,7 @@
 
     $db = new PDO(
         "mysql:host=" . $ini["servername"] . 
-        // ";port=" . $ini["port"] . 
+        ";port=" . $ini["port"] . 
         ";dbname=" . $ini["dbname"],
         $ini["username"],
         $ini["password"]
