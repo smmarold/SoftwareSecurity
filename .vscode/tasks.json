@@ -11,7 +11,7 @@
         "command": "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
       },
       "args": [
-        "http://localhost/AS_Capstone/${relativeFile}"
+        "http://localhost/SoftwareSecurity/${relativeFile}"
       ],
       "presentation": {
         "echo": false,
@@ -19,6 +19,23 @@
         "panel": "dedicated"
       },
       "problemMatcher": []
-    }
+    }, 
+
+    {
+      "label": "Open PHP Server Firefox",
+      "command": "Firefox",
+      "windows": {
+        "command": "C:\\Program Files\\Mozilla Firefox\\firefox.exe"
+      },
+      "args": [
+        "http://localhost/SoftwareSecurity/${relativeFile}"
+      ],
+      "presentation": {
+        "echo": false,
+        "reveal": "never",
+        "panel": "dedicated"
+      },
+      "problemMatcher": []
+    }, 
   ],
 }

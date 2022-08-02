@@ -304,6 +304,7 @@ else if(isGetRequest()){
     var sigSave1 = document.querySelector('#sigSave1');
     var sigSave2 = document.querySelector('#sigSave2');
     var clr = document.querySelectorAll(`.clearButtons`);
+    var acctType = <?= json_encode($_SESSION["accountType"]) ?>;
     //Query Selectors ******************************************************************************************************
     
     //Vars for checking if sig is already signed and/or being signed. 
@@ -403,6 +404,12 @@ else if(isGetRequest()){
                 allInputs[i].disabled = true;
                 allInputs[i].classList.add("inputDisabled");
                 allInputs[i].classList.remove("inputActive");
+            }
+        }
+        if(acctType != "Supervisor" && acctType != "Admin"){
+            sigDiv2.hidden = true;
+            if(isSigned2){
+                sigImg2.hidden = false;
             }
         }
     })

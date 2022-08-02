@@ -1,6 +1,9 @@
 <?php
     include('includes/header.php');
     include('model/model_login.php');
+
+    //admin, tech, super, sales
+
     //Initialize variables
     $userName = "";
     $errorMsg = "";

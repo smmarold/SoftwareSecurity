@@ -352,6 +352,7 @@
     var isSigned2 = false;
     var newSig1 = false;
     var newSig2 = false;
+    var acctType = <?= json_encode($_SESSION["accountType"]) ?>;
 
     //SigPad Event Listeners **************************************************************************************************************************************
     //Save buttons for sig pads. Changes appropraite booleans so we don't overwrite if no new sig was present
@@ -379,6 +380,12 @@
         fillSurvivalChecklist();
         fillDatedItemsChecklist();
         sigPadCheck();
+        if(acctType != "Supervisor" && acctType != "Admin"){
+            sigDiv2.hidden = true;
+            if(isSigned2){
+                sigImg2.hidden = false;
+            }
+        }
     }
 
     //Using the userID fields for the sig pads in the DB, we see if there is a signature. if the field 0, 

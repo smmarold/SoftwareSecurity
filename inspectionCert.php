@@ -1,4 +1,5 @@
 <?php
+    include('includes/header.php');
     include('model/temp_model.php');
     include('model/model_inspection_sheet.php');
     include('includes/functions.php');
