@@ -223,7 +223,7 @@ Class Vessel
         global $db;
         $results = "";
 
-        $sql = "INSERT INTO vessel_lookup SET vesselModel = :vesselModel, vesselManufacturer = :vesselManufacturer, vesselCapacity = :vesselCapacity";
+        $sql = "INSERT INTO Vessel_Lookup SET vesselModel = :vesselModel, vesselManufacturer = :vesselManufacturer, vesselCapacity = :vesselCapacity";
         $binds = array(
             ":vesselModel" => $this->vesselModel,
             ":vesselManufacturer" => $this->vesselManufacturer,

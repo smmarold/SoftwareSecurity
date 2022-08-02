@@ -15,6 +15,9 @@
     if(!isset($_GET["woNumber"])){ //Return home if no wo num was passed in URL
         header("Location: home.php");
     }
+    elseif($_SESSION["accountType"] != "Admin" && $_SESSION["accountType"] != 'Supervisor'){
+        header("Location: viewWorkOrder.php?woNumber={$_GET["woNumber"]}");
+    }
 //Post Section ************************************************************************************************************************************
     //Page is separated in to 4 tables, plus info at top. 
     if(filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'POST')

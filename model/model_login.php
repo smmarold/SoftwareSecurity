@@ -10,7 +10,7 @@ function login($userName, $userPassword){
     $result = ["userID"=>"", "accountType"=>""];
 
     //Create PDO statement object
-    $stmt = $db->prepare("SELECT userID, accountType FROM users_lookup WHERE userName=:userName AND userPassword=:userPassword");
+    $stmt = $db->prepare("SELECT userID, accountType FROM Users_Lookup WHERE userName=:userName AND userPassword=:userPassword");
 
     //Store SQL statement argumants
     $stmt->bindValue(':userName', $userName);

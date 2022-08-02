@@ -19,6 +19,9 @@
     if(!isset($_GET["woNumber"])){ //Again, no woNum in URL means should be here, go home. 
         header("Location: home.php");
     }
+    elseif($_SESSION["accountType"] != "Admin" && $_SESSION["accountType"] != 'Supervisor'){
+        header("Location: viewWorkOrder.php?woNumber={$_GET["woNumber"]}");
+    }
     //No POST. Only get, filling appropriate arrays. 
     if(isGetRequest()){
 

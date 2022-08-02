@@ -10,7 +10,7 @@ function addQCCecklist($woNumber){
     $results = false;
 
     //Create PDO statement object
-    $stmt = $db->prepare("INSERT INTO qc_checklist_table SET checklistID = :checklistID, woNum = :woNumber, item1 = :item1, item2 = :item2, item3 = :item3, item4 = :item4, item5 = :item5, item5A = :item5A, item5B = :item5B, item6 = :item6, item6A = :item6A, item6B = :item6B, item7 = :item7, item7A = :item7A, item7B = :item7B, item7C = :item7C, item8 = :item8, item8A = :item8A, item8B = :item8B, item8C = :item8C, item9 = :item9, item10 = :item10, item10A = :item10A, item11 = :item11, item12 = :item12, item13 = :item13, item14 = :item14, item15 = :item15, item16 = :item16, userID_Sig1 = :userID_Sig1, userID_Sig2 = :userID_Sig2, userID_Sig1_Filepath = :userID_Sig1_Filepath, userID_Sig2_Filepath = :userID_Sig2_Filepath");
+    $stmt = $db->prepare("INSERT INTO QC_Checklist_Table SET checklistID = :checklistID, woNum = :woNumber, item1 = :item1, item2 = :item2, item3 = :item3, item4 = :item4, item5 = :item5, item5A = :item5A, item5B = :item5B, item6 = :item6, item6A = :item6A, item6B = :item6B, item7 = :item7, item7A = :item7A, item7B = :item7B, item7C = :item7C, item8 = :item8, item8A = :item8A, item8B = :item8B, item8C = :item8C, item9 = :item9, item10 = :item10, item10A = :item10A, item11 = :item11, item12 = :item12, item13 = :item13, item14 = :item14, item15 = :item15, item16 = :item16, userID_Sig1 = :userID_Sig1, userID_Sig2 = :userID_Sig2, userID_Sig1_Filepath = :userID_Sig1_Filepath, userID_Sig2_Filepath = :userID_Sig2_Filepath");
 
     //Store SQL statement argumants in array
     $binds = array(
@@ -64,7 +64,7 @@ function getQCChecklist($woNumber){
 
     $results = [];
 
-    $sql = "SELECT * FROM qc_checklist_table WHERE woNum = :woNumber";
+    $sql = "SELECT * FROM QC_Checklist_Table WHERE woNum = :woNumber";
 
     $binds = array(
         ":woNumber" => $woNumber
@@ -85,7 +85,7 @@ function updateQCChecklist($qcChecklist) {
     $results = false;
 
     //Create PDO statement object
-    $stmt = $db->prepare("UPDATE qc_checklist_table SET item1 = :item1, item2 = :item2, item3 = :item3, item4 = :item4, item5 = :item5, item5A = :item5A, item5B = :item5B, item6 = :item6, item6A = :item6A, item6B = :item6B, item7 = :item7, item7A = :item7A, item7B = :item7B, item7C = :item7C, item8 = :item8, item8A = :item8A, item8B = :item8B, item8C = :item8C, item9 = :item9, item10 = :item10, item10A = :item10A, item11 = :item11, item12 = :item12, item13 = :item13, item14 = :item14, item15 = :item15, item16 = :item16, userID_Sig1 = :userID_Sig1, userID_Sig2 = :userID_Sig2, userID_Sig1_Filepath = :userID_Sig1_Filepath, userID_Sig2_Filepath = :userID_Sig2_Filepath WHERE checklistID=:checklistID");
+    $stmt = $db->prepare("UPDATE QC_Checklist_Table SET item1 = :item1, item2 = :item2, item3 = :item3, item4 = :item4, item5 = :item5, item5A = :item5A, item5B = :item5B, item6 = :item6, item6A = :item6A, item6B = :item6B, item7 = :item7, item7A = :item7A, item7B = :item7B, item7C = :item7C, item8 = :item8, item8A = :item8A, item8B = :item8B, item8C = :item8C, item9 = :item9, item10 = :item10, item10A = :item10A, item11 = :item11, item12 = :item12, item13 = :item13, item14 = :item14, item15 = :item15, item16 = :item16, userID_Sig1 = :userID_Sig1, userID_Sig2 = :userID_Sig2, userID_Sig1_Filepath = :userID_Sig1_Filepath, userID_Sig2_Filepath = :userID_Sig2_Filepath WHERE checklistID=:checklistID");
     
     //Store SQL statement argumants
     $binds = array(
@@ -138,7 +138,7 @@ function getVesselID($woNumber){
 
     $results = [];
 
-    $sql = "SELECT vesselID FROM workorder_lookup WHERE woNum = :woNumber";
+    $sql = "SELECT vesselID FROM WorkOrder_Lookup WHERE woNum = :woNumber";
 
     $binds = array(
         ":woNumber" => $woNumber

@@ -47,7 +47,7 @@ function addWorkOrderItem($woNumber, $quantity, $productID){
     $results = false;
 
     //Create PDO statement object
-    $stmt = $db->prepare("INSERT INTO wo_items_table SET woNum = :woNumber, quantity = :quantity, productID = :productID");
+    $stmt = $db->prepare("INSERT INTO WO_Items_Table SET woNum = :woNumber, quantity = :quantity, productID = :productID");
 
     //Store SQL statement argumants in array
     $binds = array(
@@ -70,7 +70,7 @@ function getCustomerName($customerID){
 
     $results = [];
 
-    $sql = "SELECT customerName FROM customer_lookup WHERE customerID = :customerID";
+    $sql = "SELECT customerName FROM Customer_Lookup WHERE customerID = :customerID";
 
     $binds = array(
         ":customerID" => $customerID
@@ -88,7 +88,7 @@ function getVesselSerialNumber($vesselID){
 
     $results = [];
 
-    $sql = "SELECT serialNumber FROM customer_vessels_lookup WHERE vesselID = :vesselID";
+    $sql = "SELECT serialNumber FROM Customer_Vessels_Lookup WHERE vesselID = :vesselID";
 
     $binds = array(
         ":vesselID" => $vesselID
@@ -122,7 +122,7 @@ function getStageKeys(){
 
     $results = [];
 
-    $sql = "SELECT * FROM stage_key_lookup WHERE 0=0";
+    $sql = "SELECT * FROM Stage_Key_Lookup WHERE 0=0";
 
     $stmt = $db->prepare($sql);
     if($stmt->execute() && $stmt->rowCount() > 0)
@@ -136,7 +136,7 @@ function getWorkOrder($woNumber){
 
     $results = [];
 
-    $sql = "SELECT * FROM workorder_lookup WHERE woNum = :woNumber";
+    $sql = "SELECT * FROM WorkOrder_Lookup WHERE woNum = :woNumber";
 
     $binds = array(
         ":woNumber" => $woNumber
@@ -155,7 +155,7 @@ function getCutomer($customerID){
 
     $results = [];
 
-    $sql = "SELECT * FROM customer_lookup WHERE customerID = :customerID";
+    $sql = "SELECT * FROM Customer_Lookup WHERE customerID = :customerID";
 
     $binds = array(
         ":customerID" => $customerID
@@ -173,7 +173,7 @@ function getVessel($vesselID){
 
     $results = [];
 
-    $sql = "SELECT * FROM customer_vessels_lookup WHERE vesselID = :vesselID";
+    $sql = "SELECT * FROM Customer_Vessels_Lookup WHERE vesselID = :vesselID";
 
     $binds = array(
         ":vesselID" => $vesselID
@@ -191,7 +191,7 @@ function getVesselMenufacture($vesselModel){
 
     $results = [];
 
-    $sql = "SELECT * FROM vessel_lookup WHERE vesselModel = :vesselModel";
+    $sql = "SELECT * FROM Vessel_Lookup WHERE vesselModel = :vesselModel";
 
     $binds = array(
         ":vesselModel" => $vesselModel
@@ -209,7 +209,7 @@ function getItems($woNumber){
 
     $results = [];
 
-    $sql = "SELECT * FROM wo_items_table WHERE woNum = :woNumber";
+    $sql = "SELECT * FROM WO_Items_Table WHERE woNum = :woNumber";
 
     $binds = array(
         ":woNumber" => $woNumber
@@ -227,7 +227,7 @@ function getProduct($productID){
 
     $results = [];
 
-    $sql = "SELECT * FROM product_lookup WHERE productID = :productID";
+    $sql = "SELECT * FROM Product_Lookup WHERE productID = :productID";
 
     $binds = array(
         ":productID" => $productID
@@ -248,7 +248,7 @@ function updateStageKey($woNumber, $stageKey) {
     $results = false;
 
     //Create PDO statement object
-    $stmt = $db->prepare("UPDATE workorder_lookup SET stageKey = :stageKey WHERE woNum=:woNumber");
+    $stmt = $db->prepare("UPDATE WorkOrder_Lookup SET stageKey = :stageKey WHERE woNum=:woNumber");
     
     //Store SQL statement argumants
     $stmt->bindValue(':stageKey', $stageKey);
@@ -272,7 +272,7 @@ function searchWorkOrders($searchField){
 
     $results = [];
 
-    $sql = "SELECT * FROM workorder_lookup WHERE 0=0";
+    $sql = "SELECT * FROM WorkOrder_Lookup WHERE 0=0";
     $binds = [];
 
     $stmt = $db->prepare($sql);
@@ -302,56 +302,56 @@ function deleteWO($woNumber) {
     $results = false;
     
     //Create PDO statement object
-    $stmt = $db->prepare("DELETE FROM qc_checklist_table WHERE woNum=:woNumber");
+    $stmt = $db->prepare("DELETE FROM QC_Checklist_Table WHERE woNum=:woNumber");
     $stmt->bindValue(':woNumber', $woNumber);
     if ($stmt->execute() && $stmt->rowCount() > 0) {
         //Make results equal good result message
         $results = true;
     }
 
-    $stmt = $db->prepare("DELETE FROM component_table WHERE woNum=:woNumber");
+    $stmt = $db->prepare("DELETE FROM Component_Table WHERE woNum=:woNumber");
     $stmt->bindValue(':woNumber', $woNumber);
     if ($stmt->execute() && $stmt->rowCount() > 0) {
         //Make results equal good result message
         $results = true;
     }
 
-    $stmt = $db->prepare("DELETE FROM inspection_worksheet_table WHERE worksheetID=:woNumber");
+    $stmt = $db->prepare("DELETE FROM Inspection_Worksheet_Table WHERE worksheetID=:woNumber");
     $stmt->bindValue(':woNumber', $woNumber);
     if ($stmt->execute() && $stmt->rowCount() > 0) {
         //Make results equal good result message
         $results = true;
     }
 
-    $stmt = $db->prepare("DELETE FROM changelog_table WHERE woNum=:woNumber");
+    $stmt = $db->prepare("DELETE FROM ChangeLog_Table WHERE woNum=:woNumber");
     $stmt->bindValue(':woNumber', $woNumber);
     if ($stmt->execute() && $stmt->rowCount() > 0) {
         //Make results equal good result message
         $results = true;
     }
 
-    $stmt = $db->prepare("DELETE FROM dated_items_table WHERE woNum=:woNumber");
+    $stmt = $db->prepare("DELETE FROM Dated_Items_Table WHERE woNum=:woNumber");
     $stmt->bindValue(':woNumber', $woNumber);
     if ($stmt->execute() && $stmt->rowCount() > 0) {
         //Make results equal good result message
         $results = true;
     }
 
-    $stmt = $db->prepare("DELETE FROM wo_items_table WHERE woNum=:woNumber");
+    $stmt = $db->prepare("DELETE FROM WO_Items_Table WHERE woNum=:woNumber");
     $stmt->bindValue(':woNumber', $woNumber);
     if ($stmt->execute() && $stmt->rowCount() > 0) {
         //Make results equal good result message
         $results = true;
     }
 
-    $stmt = $db->prepare("DELETE FROM survival_table WHERE woNum=:woNumber");
+    $stmt = $db->prepare("DELETE FROM Survival_Table WHERE woNum=:woNumber");
     $stmt->bindValue(':woNumber', $woNumber);
     if ($stmt->execute() && $stmt->rowCount() > 0) {
         //Make results equal good result message
         $results = true;
     }
 
-    $stmt = $db->prepare("DELETE FROM workorder_lookup WHERE woNum=:woNumber");
+    $stmt = $db->prepare("DELETE FROM WorkOrder_Lookup WHERE woNum=:woNumber");
     $stmt->bindValue(':woNumber', $woNumber);
     if ($stmt->execute() && $stmt->rowCount() > 0) {
         //Make results equal good result message

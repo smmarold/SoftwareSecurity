@@ -128,7 +128,7 @@ Class PartsChecklist {
     public function checkIfExists($pcSheetID){
         global $db;
         $results = false;
-        $sql = "SELECT * FROM component_table WHERE sheetID = :sheetID";
+        $sql = "SELECT * FROM Component_Table WHERE sheetID = :sheetID";
         $binds = array(
             ":sheetID"=>$pcSheetID
         );
@@ -196,7 +196,7 @@ Class PartsChecklist {
                        userID_Sig1,
                        userID_Sig2,
                        userID_Sig1_Filepath,
-                       userID_Sig2_Filepath FROM component_table WHERE woNum = :woNum"; 
+                       userID_Sig2_Filepath FROM Component_Table WHERE woNum = :woNum"; 
 
         $binds = array(
             ":woNum" => $woNum
@@ -215,7 +215,7 @@ Class PartsChecklist {
 
         $results = "";
 
-        $sql = "INSERT INTO component_table 
+        $sql = "INSERT INTO Component_Table 
                 SET sheetID = :sheetID,
                     woNum = :woNum,
                     boardingLadder = :boardingLadder,
@@ -330,7 +330,7 @@ Class PartsChecklist {
 
         $results = "";
 
-        $sql = "UPDATE component_table 
+        $sql = "UPDATE Component_Table 
                 SET boardingLadder = :boardingLadder,
                     boardingRamp = :boardingRamp,
                     reflectiveTape = :reflectiveTape,
@@ -483,7 +483,7 @@ Class PartsChecklist {
 
         $results = "";
 
-        $sql = "INSERT INTO survival_table 
+        $sql = "INSERT INTO Survival_Table 
                 SET sheetID = :sheetID,
                     woNum = :woNum,
                     equipmentBag = :equipmentBag,
@@ -548,7 +548,7 @@ Class PartsChecklist {
 
         $results = "";
 
-        $sql = "UPDATE survival_table 
+        $sql = "UPDATE Survival_Table 
                 SET equipmentBag = :equipmentBag,
                     handPumpHoseAdapter = :handPumpHoseAdapter,
                     sealingPlugs = :sealingPlugs,

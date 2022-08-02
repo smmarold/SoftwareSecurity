@@ -10,8 +10,11 @@
     $sheetExists = false; //Initialize this, change if we return a sheet on load. Checked in JavaScript when filling fields. 
     $result = "";
 
-    if(!isset($_GET["woNumber"])){ //Routes to home page if no woNum was sent (someone typed the URL without a param. )
+    if(!isset($_GET["woNumber"])){ //No URL Param? No Good. Go Home. 
         header("Location: home.php");
+    }
+    elseif($_SESSION["accountType"] != "Admin" && $_SESSION["accountType"] != 'Technician' && $_SESSION["accountType"] != 'Supervisor'){
+        header("Location: viewWorkOrder.php?woNumber={$_GET["woNumber"]}");
     }
 
     //The parts list is broken into three sections, each having a table in the DB. 

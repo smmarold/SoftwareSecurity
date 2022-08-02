@@ -1,4 +1,4 @@
-CREATE TABLE Account_Types_Lookup (
+CREATE TABLE account_types_lookup (
               accountType VARCHAR(50) NOT NULL PRIMARY KEY,
         typeDescrition VARCHAR(50) NOT NULL      
         

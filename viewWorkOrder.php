@@ -55,7 +55,7 @@
                 <form method="post" id="formKey" class="d-flex justify-content-end align-items-center">
                     <input type="hidden" name="home" id="home" value="false">
                     <label for="stageKey">Stage: </label>
-                    <select name="stageKey" id="stageKey" class="bg-primary border border-secondary text-white mx-2">
+                    <select name="stageKey" id="stageKey" class="bg-primary border border-secondary text-white mx-2" <?php if($_SESSION["accountType"] != 'Admin' && $_SESSION["accountType"] != 'Technician' && $_SESSION["accountType"] != 'Supervisor'): ?> disabled <?php endif; ?>>
                         <!--Stage Keys are in a table rather than explicitly put here. Allows for adding removing stage keys as business requires. -->
                         <?php foreach($stageKeys as $key): ?>
                             <option value="<?= $key["stageKey"] ?>"
@@ -63,7 +63,9 @@
                             <?= $key["stageKey"] ?></option>
                         <?php endforeach; ?>
                     </select>
-                    <button type="submit" id="updateStageKey" class="btn btn-sm btn-secondary text-white font-weight-bold">Update</button>
+                    
+                    <button type="submit" id="updateStageKey" class="btn btn-sm btn-secondary text-white font-weight-bold" <?php if($_SESSION["accountType"] != 'Admin' && $_SESSION["accountType"] != 'Technician' && $_SESSION["accountType"] != 'Supervisor'): ?> disabled <?php endif; ?>>Update</button>
+                    
                 </form>
             </div>
         </div>
@@ -213,6 +215,7 @@
             </form>
             <!-- Buttons for routing to pages associated with the work order.  -->
             <div class="d-flex justify-content-around col-12 mx-auto">
+                <?php if($_SESSION["accountType"] == 'Admin' || $_SESSION["accountType"] == 'Technician' || $_SESSION["accountType"] == 'Supervisor'): ?> 
                 <div class="text-center col-3">
                     <p>QC Checklist</p>
                     <button id="qualityContorleButton" class="btn btn-secondary text-white font-weight-bold mb-2 mx-auto">View/Edit</button>
@@ -221,10 +224,13 @@
                     <p>Parts Checklist</p>
                     <button id="partsChecklistButton" class="btn btn-secondary text-white font-weight-bold mb-2 mx-auto">View/Edit</button>
                 </div>
+                <?php endif; ?>
+                <?php if($_SESSION["accountType"] == 'Admin'|| $_SESSION["accountType"] == 'Supervisor'): ?> 
                 <div class="text-center col-3">
                     <p>Inspection Worksheet</p>
                     <button id="inspectionWorksheetButton" class="btn btn-secondary text-white font-weight-bold mb-2 mx-auto">View/Edit</button>
                 </div>
+                <?php endif; ?>
             </div>
         </div>
         <footer>

@@ -9,6 +9,9 @@ $feedback = "";
 if(!isset($_GET["woNumber"])){ //No URL Param? No Good. Go Home. 
     header("Location: home.php");
 }
+elseif($_SESSION["accountType"] != "Admin" && $_SESSION["accountType"] != 'Technician' && $_SESSION["accountType"] != 'Supervisor'){
+    header("Location: viewWorkOrder.php?woNumber={$_GET["woNumber"]}");
+}
 //POST Section ******************************************************************************************************************************
 if(filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'POST')
 {

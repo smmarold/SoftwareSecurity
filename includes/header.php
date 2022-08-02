@@ -8,7 +8,7 @@
 
     //check if the session exists, if not, redirect to login page. 
     //It may be unnecessary to also check if the session logged in is false, but I felt it was safer to do so. 
-    if(!isset($_SESSION['userID']) && $url[0] != "login.php")
+    if((!isset($_SESSION['userID']) || !isset($_SESSION['accountType'])) && $url[0] != "login.php")
       header('Location: login.php');
     else if(isset($_SESSION['userID']) && $url[0] == "login.php")
       header('Location: home.php');

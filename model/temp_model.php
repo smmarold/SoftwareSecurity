@@ -9,7 +9,7 @@ function getCustomers($search){
     $results = [];
     $binds = array();
 
-    $sql = "SELECT customerID, customerName, customerAddress, customerAddress2, customerCity, customerState, customerZipCode, customerEmail, customerPhone FROM customer_lookup WHERE 0=0";
+    $sql = "SELECT customerID, customerName, customerAddress, customerAddress2, customerCity, customerState, customerZipCode, customerEmail, customerPhone FROM Customer_Lookup WHERE 0=0";
     if ($search != ""){
         $sql .= " AND customerName LIKE :customerName";
         $binds['customerName'] = '%'.$search.'%';
@@ -28,7 +28,7 @@ function getVessel($vesselID){
 
     $results = [];
 
-    $sql = "SELECT * FROM customer_vessels_lookup WHERE vesselID = :vesselID";
+    $sql = "SELECT * FROM Customer_Vessels_Lookup WHERE vesselID = :vesselID";
 
     $binds = array(
         ":vesselID" => $vesselID
@@ -46,7 +46,7 @@ function getCutomer($customerID){
 
     $results = [];
 
-    $sql = "SELECT * FROM customer_lookup WHERE customerID = :customerID";
+    $sql = "SELECT * FROM Customer_Lookup WHERE customerID = :customerID";
 
     $binds = array(
         ":customerID" => $customerID
@@ -64,7 +64,7 @@ function getWorkOrder($woNumber){
 
     $results = [];
 
-    $sql = "SELECT * FROM workorder_lookup WHERE woNum = :woNumber";
+    $sql = "SELECT * FROM WorkOrder_Lookup WHERE woNum = :woNumber";
 
     $binds = array(
         ":woNumber" => $woNumber
@@ -82,7 +82,7 @@ function getVesselMenufacture($vesselModel){
 
     $results = [];
 
-    $sql = "SELECT * FROM vessel_lookup WHERE vesselModel = :vesselModel";
+    $sql = "SELECT * FROM Vessel_Lookup WHERE vesselModel = :vesselModel";
 
     $binds = array(
         ":vesselModel" => $vesselModel
@@ -100,7 +100,7 @@ function getPSISection($woNumber){
 
     $results = [];
 
-    $sql = "SELECT * FROM inspection_worksheet_table WHERE worksheetID = :woNumber";
+    $sql = "SELECT * FROM Inspection_Worksheet_Table WHERE worksheetID = :woNumber";
 
     $binds = array(
         ":woNumber" => $woNumber
@@ -121,7 +121,7 @@ function addPsiSection($woNumber, $sheetID){
     $results = false;
 
     //Create PDO statement object
-    $stmt = $db->prepare("INSERT INTO inspection_worksheet_table SET worksheetID = :woNumber, sheetID = :sheetID, serviceDate = :serviceDate, appovalNum = :appovalNum, URPSI = :URPSI, URReliefOpen = :URReliefOpen, URReliefReseat = :URReliefReseat, URTimeOn = :URTimeOn, URTimeOff = :URTimeOff, URPressureOn = :URPressureOn, URPressureOff = :URPressureOff, URTemperatureOn = :URTemperatureOn, URTemperatureOff = :URTemperatureOff, URBarometerOn = :URBarometerOn, URBarometerOff = :URBarometerOff, URFinishPressure = :URFinishPressure, URCorrectedPressure = :URCorrectedPressure, URPassFail = :URPassFail, LRPSI = :LRPSI, LRReliefOpen = :LRReliefOpen, LRReliefReseat = :LRReliefReseat, LRTimeOn = :LRTimeOn, LRTimeOff = :LRTimeOff, LRPressureOn = :LRPressureOn, LRPressureOff = :LRPressureOff, LRTemperatureOn = :LRTemperatureOn, LRTemperatureOff = :LRTemperatureOff, LRBarometerOn = :LRBarometerOn, LRBarometerOff = :LRBarometerOff, LRFinishPressure = :LRFinishPressure, LRCorrectedPressure = :LRCorrectedPressure, LRPassFail = :LRPassFail, FLPSI = :FLPSI, FLReliefOpen = :FLReliefOpen, FLReliefReseat = :FLReliefReseat, FLTimeOn = :FLTimeOn, FLTimeOff = :FLTimeOff, FLPressureOn = :FLPressureOn, FLPressureOff = :FLPressureOff, FLTemperatureOn = :FLTemperatureOn, FLTemperatureOff = :FLTemperatureOff, FLBarometerOn = :FLBarometerOn, FLBarometerOff = :FLBarometerOff, FLFinishPressure = :FLFinishPressure, FLCorrectedPressure = :FLCorrectedPressure, FLPassFail = :FLPassFail, FiveYearInflation = :FiveYearInflation, FloorStrength = :FloorStrength, NAP = :NAP, ReleaseHook = :ReleaseHook, LoadTest = :LoadTest, CylinderSerialA = :CylinderSerialA, CylinderSerialB = :CylinderSerialB, GrossWeightA = :GrossWeightA, GrossWeightB = :GrossWeightB, WeightCO2A = :WeightCO2A, WeightCO2B = :WeightCO2B, WeightN2A = :WeightN2A, WeightN2B = :WeightN2B, HydroTestDueDateA = :HydroTestDueDateA, HydroTestDueDateB = :HydroTestDueDateB, Comments = :Comments");
+    $stmt = $db->prepare("INSERT INTO Inspection_Worksheet_Table SET worksheetID = :woNumber, sheetID = :sheetID, serviceDate = :serviceDate, appovalNum = :appovalNum, URPSI = :URPSI, URReliefOpen = :URReliefOpen, URReliefReseat = :URReliefReseat, URTimeOn = :URTimeOn, URTimeOff = :URTimeOff, URPressureOn = :URPressureOn, URPressureOff = :URPressureOff, URTemperatureOn = :URTemperatureOn, URTemperatureOff = :URTemperatureOff, URBarometerOn = :URBarometerOn, URBarometerOff = :URBarometerOff, URFinishPressure = :URFinishPressure, URCorrectedPressure = :URCorrectedPressure, URPassFail = :URPassFail, LRPSI = :LRPSI, LRReliefOpen = :LRReliefOpen, LRReliefReseat = :LRReliefReseat, LRTimeOn = :LRTimeOn, LRTimeOff = :LRTimeOff, LRPressureOn = :LRPressureOn, LRPressureOff = :LRPressureOff, LRTemperatureOn = :LRTemperatureOn, LRTemperatureOff = :LRTemperatureOff, LRBarometerOn = :LRBarometerOn, LRBarometerOff = :LRBarometerOff, LRFinishPressure = :LRFinishPressure, LRCorrectedPressure = :LRCorrectedPressure, LRPassFail = :LRPassFail, FLPSI = :FLPSI, FLReliefOpen = :FLReliefOpen, FLReliefReseat = :FLReliefReseat, FLTimeOn = :FLTimeOn, FLTimeOff = :FLTimeOff, FLPressureOn = :FLPressureOn, FLPressureOff = :FLPressureOff, FLTemperatureOn = :FLTemperatureOn, FLTemperatureOff = :FLTemperatureOff, FLBarometerOn = :FLBarometerOn, FLBarometerOff = :FLBarometerOff, FLFinishPressure = :FLFinishPressure, FLCorrectedPressure = :FLCorrectedPressure, FLPassFail = :FLPassFail, FiveYearInflation = :FiveYearInflation, FloorStrength = :FloorStrength, NAP = :NAP, ReleaseHook = :ReleaseHook, LoadTest = :LoadTest, CylinderSerialA = :CylinderSerialA, CylinderSerialB = :CylinderSerialB, GrossWeightA = :GrossWeightA, GrossWeightB = :GrossWeightB, WeightCO2A = :WeightCO2A, WeightCO2B = :WeightCO2B, WeightN2A = :WeightN2A, WeightN2B = :WeightN2B, HydroTestDueDateA = :HydroTestDueDateA, HydroTestDueDateB = :HydroTestDueDateB, Comments = :Comments");
 
     //Store SQL statement argumants in array
     $binds = array(
@@ -206,7 +206,7 @@ function updatePsiSection($psiSection) {
     $results = false;
 
     //Create PDO statement object
-    $stmt = $db->prepare("UPDATE inspection_worksheet_table SET  serviceDate = :serviceDate, appovalNum = :appovalNum, URPSI = :URPSI, URReliefOpen = :URReliefOpen, URReliefReseat = :URReliefReseat, URTimeOn = :URTimeOn, URTimeOff = :URTimeOff, URPressureOn = :URPressureOn, URPressureOff = :URPressureOff, URTemperatureOn = :URTemperatureOn, URTemperatureOff = :URTemperatureOff, URBarometerOn = :URBarometerOn, URBarometerOff = :URBarometerOff, URFinishPressure = :URFinishPressure, URCorrectedPressure = :URCorrectedPressure, URPassFail = :URPassFail, LRPSI = :LRPSI, LRReliefOpen = :LRReliefOpen, LRReliefReseat = :LRReliefReseat, LRTimeOn = :LRTimeOn, LRTimeOff = :LRTimeOff, LRPressureOn = :LRPressureOn, LRPressureOff = :LRPressureOff, LRTemperatureOn = :LRTemperatureOn, LRTemperatureOff = :LRTemperatureOff, LRBarometerOn = :LRBarometerOn, LRBarometerOff = :LRBarometerOff, LRFinishPressure = :LRFinishPressure, LRCorrectedPressure = :LRCorrectedPressure, LRPassFail = :LRPassFail, FLPSI = :FLPSI, FLReliefOpen = :FLReliefOpen, FLReliefReseat = :FLReliefReseat, FLTimeOn = :FLTimeOn, FLTimeOff = :FLTimeOff, FLPressureOn = :FLPressureOn, FLPressureOff = :FLPressureOff, FLTemperatureOn = :FLTemperatureOn, FLTemperatureOff = :FLTemperatureOff, FLBarometerOn = :FLBarometerOn, FLBarometerOff = :FLBarometerOff, FLFinishPressure = :FLFinishPressure, FLCorrectedPressure = :FLCorrectedPressure, FLPassFail = :FLPassFail, FiveYearInflation = :FiveYearInflation, FloorStrength = :FloorStrength, NAP = :NAP, ReleaseHook = :ReleaseHook, LoadTest = :LoadTest, CylinderSerialA = :CylinderSerialA, CylinderSerialB = :CylinderSerialB, GrossWeightA = :GrossWeightA, GrossWeightB = :GrossWeightB, WeightCO2A = :WeightCO2A, WeightCO2B = :WeightCO2B, WeightN2A = :WeightN2A, WeightN2B = :WeightN2B, HydroTestDueDateA = :HydroTestDueDateA, HydroTestDueDateB = :HydroTestDueDateB, Comments = :Comments WHERE worksheetID = :worksheetID");
+    $stmt = $db->prepare("UPDATE Inspection_Worksheet_Table SET  serviceDate = :serviceDate, appovalNum = :appovalNum, URPSI = :URPSI, URReliefOpen = :URReliefOpen, URReliefReseat = :URReliefReseat, URTimeOn = :URTimeOn, URTimeOff = :URTimeOff, URPressureOn = :URPressureOn, URPressureOff = :URPressureOff, URTemperatureOn = :URTemperatureOn, URTemperatureOff = :URTemperatureOff, URBarometerOn = :URBarometerOn, URBarometerOff = :URBarometerOff, URFinishPressure = :URFinishPressure, URCorrectedPressure = :URCorrectedPressure, URPassFail = :URPassFail, LRPSI = :LRPSI, LRReliefOpen = :LRReliefOpen, LRReliefReseat = :LRReliefReseat, LRTimeOn = :LRTimeOn, LRTimeOff = :LRTimeOff, LRPressureOn = :LRPressureOn, LRPressureOff = :LRPressureOff, LRTemperatureOn = :LRTemperatureOn, LRTemperatureOff = :LRTemperatureOff, LRBarometerOn = :LRBarometerOn, LRBarometerOff = :LRBarometerOff, LRFinishPressure = :LRFinishPressure, LRCorrectedPressure = :LRCorrectedPressure, LRPassFail = :LRPassFail, FLPSI = :FLPSI, FLReliefOpen = :FLReliefOpen, FLReliefReseat = :FLReliefReseat, FLTimeOn = :FLTimeOn, FLTimeOff = :FLTimeOff, FLPressureOn = :FLPressureOn, FLPressureOff = :FLPressureOff, FLTemperatureOn = :FLTemperatureOn, FLTemperatureOff = :FLTemperatureOff, FLBarometerOn = :FLBarometerOn, FLBarometerOff = :FLBarometerOff, FLFinishPressure = :FLFinishPressure, FLCorrectedPressure = :FLCorrectedPressure, FLPassFail = :FLPassFail, FiveYearInflation = :FiveYearInflation, FloorStrength = :FloorStrength, NAP = :NAP, ReleaseHook = :ReleaseHook, LoadTest = :LoadTest, CylinderSerialA = :CylinderSerialA, CylinderSerialB = :CylinderSerialB, GrossWeightA = :GrossWeightA, GrossWeightB = :GrossWeightB, WeightCO2A = :WeightCO2A, WeightCO2B = :WeightCO2B, WeightN2A = :WeightN2A, WeightN2B = :WeightN2B, HydroTestDueDateA = :HydroTestDueDateA, HydroTestDueDateB = :HydroTestDueDateB, Comments = :Comments WHERE worksheetID = :worksheetID");
     
     //Store SQL statement argumants
     $binds = array(
