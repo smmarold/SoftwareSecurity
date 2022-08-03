@@ -50,7 +50,7 @@
             <!-- <div class="error">?= $invalid?></div> This is where the error is displayed if the credentials don't match. -->
             <div class="row text-white justify-content-center pb-3">
                 <label for="userName" class="col-sm-3 col-md-2 col-lg-2 text-end align-middle">Username:</label>
-                <input type="text" name="userName" value="admin" class="col-3 text-primary rounded">
+                <input type="text" name="userName" value="" class="col-3 text-primary rounded">
             </div>
             <div class="row text-white justify-content-center">
                 <label for="password" class="col-sm-3 col-md-2 col-lg-2 text-end align-text-top">Password:</label>
