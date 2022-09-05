@@ -198,18 +198,26 @@
                 storeDeliveryInputs[i] = deliveryInputs[i].value;
                 deliveryInputs[i].value = addressInputs[i].value;
                 deliveryInputs[i].disabled = true;
+                deliveryInputs[i].classList.add("inputDisabled");
+                deliveryInputs[i].classList.remove("inputActive");
             }
             delState = dropDowns[1].value;
             dropDowns[1].value = dropDowns[0].value;
             dropDowns[1].disabled = true;
+            dropDowns[1].classList.add("inputDisabled");
+            dropDowns[1].classList.remove("inputActive");
         }
         else if(deliveryCheckbox.checked == false && storeDeliveryInputs != ""){
             for(let i = 0; i<deliveryInputs.length; i++){
                 deliveryInputs[i].value = storeDeliveryInputs[i];
                 deliveryInputs[i].disabled = false;
+                deliveryInputs[i].classList.remove("inputDisabled");
+                deliveryInputs[i].classList.add("inputActive");
             }
             dropDowns[1].value = delState;
             dropDowns[1].disabled = false;
+            dropDowns[1].classList.remove("inputDisabled");
+            dropDowns[1].classList.add("inputActive");
         }
     })
     
@@ -282,6 +290,32 @@
                 inputs[i].disabled = false;
                 inputs[i].classList.add("inputActive");
                 inputs[i].classList.remove("inputDisabled");
+            }
+            if(deliveryCheckbox.checked){
+                for(let i = 0; i<deliveryInputs.length; i++){
+                    storeDeliveryInputs[i] = deliveryInputs[i].value;
+                    deliveryInputs[i].value = addressInputs[i].value;
+                    deliveryInputs[i].disabled = true;
+                    deliveryInputs[i].classList.add("inputDisabled");
+                    deliveryInputs[i].classList.remove("inputActive");
+                }
+                delState = dropDowns[1].value;
+                dropDowns[1].value = dropDowns[0].value;
+                dropDowns[1].disabled = true;
+                dropDowns[1].classList.add("inputDisabled");
+                dropDowns[1].classList.remove("inputActive");
+            }
+            else if(deliveryCheckbox.checked == false && storeDeliveryInputs != ""){
+                for(let i = 0; i<deliveryInputs.length; i++){
+                    deliveryInputs[i].value = storeDeliveryInputs[i];
+                    deliveryInputs[i].disabled = false;
+                    deliveryInputs[i].classList.remove("inputDisabled");
+                    deliveryInputs[i].classList.add("inputActive");
+                }
+                dropDowns[1].value = delState;
+                dropDowns[1].disabled = false;
+                dropDowns[1].classList.remove("inputDisabled");
+                dropDowns[1].classList.add("inputActive");
             }
             cancelEditBtn.hidden = false;
         })
