@@ -1,4 +1,6 @@
 <?php
+    error_reporting(0); //Stop php from reporting errors
+
     session_start(); //Start a session on each page load. 
 
     $url = $_SERVER["REQUEST_URI"];
