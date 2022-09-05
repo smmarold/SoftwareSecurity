@@ -1,1 +1,1 @@
-Well Done!
+- On editCustomer, when editing if "same as" is uncheckd, a change is made, then cancel is pressed, does not revert to original addres. 
