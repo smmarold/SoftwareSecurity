@@ -197,15 +197,19 @@
             for(let i = 0; i<deliveryInputs.length; i++){
                 storeDeliveryInputs[i] = deliveryInputs[i].value;
                 deliveryInputs[i].value = addressInputs[i].value;
+                deliveryInputs[i].disabled = true;
             }
             delState = dropDowns[1].value;
             dropDowns[1].value = dropDowns[0].value;
+            dropDowns[1].disabled = true;
         }
         else if(deliveryCheckbox.checked == false && storeDeliveryInputs != ""){
             for(let i = 0; i<deliveryInputs.length; i++){
                 deliveryInputs[i].value = storeDeliveryInputs[i];
+                deliveryInputs[i].disabled = false;
             }
             dropDowns[1].value = delState;
+            dropDowns[1].disabled = false;
         }
     })
     
