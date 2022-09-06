@@ -2,6 +2,7 @@
     include('model/temp_model.php');
     include('model/model_inspection_sheet.php');
     include('includes/functions.php');
+    include('model/model_validation.php');
 
     session_start(); //Start a session on each page load.
 
@@ -18,12 +19,22 @@
     $sheetExists = false;
     $isPCList = true;
 
-    if(!isset($_GET["woNumber"])){ //Again, no woNum in URL means should be here, go home. 
+    if(!isset($_SESSION['userID']) || !isset($_SESSION['accountType'])){
+        header('Location: login.php');
+    }
+    else if(!isset($_GET["woNumber"])){ //Again, no woNum in URL means should be here, go home. 
         header("Location: home.php");
     }
     elseif($_SESSION["accountType"] != "Admin" && $_SESSION["accountType"] != 'Supervisor'){
         header("Location: viewWorkOrder.php?woNumber={$_GET["woNumber"]}");
     }
+
+    if(isset($_GET["woNumber"])){
+        if(!validateWONum($_GET["woNumber"])){
+            header('Location: home.php');
+        }
+    }
+
     //No POST. Only get, filling appropriate arrays. 
     if(isGetRequest()){
 

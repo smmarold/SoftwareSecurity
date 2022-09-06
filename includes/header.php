@@ -1,4 +1,6 @@
 <?php
+    include('model/model_validation.php');
+
     error_reporting(0); //Stop php from reporting errors
 
     session_start(); //Start a session on each page load. 
@@ -14,6 +16,27 @@
       header('Location: login.php');
     else if(isset($_SESSION['userID']) && $url[0] == "login.php")
       header('Location: home.php');
+
+    //Check to make sure woNumber exists in database
+    if(isset($_GET["woNumber"])){
+      if(!validateWONum($_GET["woNumber"])){
+        header('Location: home.php');
+      }
+    }
+
+    //Check to make sure customerID exists in database
+    if(isset($_GET["customerID"])){
+      if(!validateCustomer($_GET["customerID"])){
+        header('Location: customers.php');
+      }
+    }
+
+    //Check to make sure vesselID exists in database
+    if(isset($_GET["vesselID"])){
+      if(!validateVessle($_GET["vesselID"])){
+        header('Location: customers.php');
+      }
+    }
 ?>
 
 <!DOCTYPE html>
