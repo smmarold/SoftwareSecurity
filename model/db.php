@@ -12,5 +12,5 @@
         );
         $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     } catch(Exception $e){
-        echo 'BAD CONNECTION';
+        header("Location: errorPage.php");
     }
