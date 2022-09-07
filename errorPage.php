@@ -46,15 +46,15 @@
     <div id="mainDiv" class="container justify-content-center h-100">
 
            
-            <div class="text-white text-center">
+            <div style="color: #ff6700" class="text-center">
                 <h3><b>ERROR</b></h3>
             </div>
             <!-- <div class="error">?= $invalid?></div> This is where the error is displayed if the credentials don't match. -->
             <div class="row text-white justify-content-center ">
-                <h4 class="col-sm-3 col-md-2 col-lg-2 text-end align-middle">Unable to Connect to Server.</h4>
+                <h4 class="text-center align-middle">Unable to Connect to Server</h4>
             </div>
             <div class="row text-white justify-content-center">
-                <h4 class="col-sm-3 col-md-2 col-lg-2 text-end align-text-top">Please try again later.</h4>
+                <h4 class="text-center align-text-top">Please try again later</h4>
             </div> 
     </div>
     <?php include('includes/footer.php'); ?>

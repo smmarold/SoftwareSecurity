@@ -132,21 +132,21 @@ function getStageKeys(){
 }
 
 function getWorkOrder($woNumber){
-        global $db;
+    global $db;
 
-        $results = [];
+    $results = [];
 
-        $sql = "SELECT * FROM WorkOrder_Lookup WHERE woNum = :woNumber";
+    $sql = "SELECT * FROM WorkOrder_Lookup WHERE woNum = :woNumber";
 
-        $binds = array(
-            ":woNumber" => $woNumber
-        );
+    $binds = array(
+        ":woNumber" => $woNumber
+    );
 
-        $stmt = $db->prepare($sql);
-        if($stmt->execute($binds) && $stmt->rowCount() > 0)
-            $results = $stmt->fetch(PDO::FETCH_ASSOC);
+    $stmt = $db->prepare($sql);
+    if($stmt->execute($binds) && $stmt->rowCount() > 0)
+        $results = $stmt->fetch(PDO::FETCH_ASSOC);
         //header("Location: home.php" );
-        echo 'Caught exception: ',  $e->getMessage(), "\n"; 
+        //echo 'Caught exception: ',  $e->getMessage(), "\n"; 
 
     return $results;
 }
