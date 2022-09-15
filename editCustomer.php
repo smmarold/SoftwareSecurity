@@ -246,7 +246,7 @@
     //If true, there are no customers, or we are adding a new customer. Enable fields and buttons
     function checkEdit(){
         var canEdit = <?= json_encode($canEdit); ?>;
-        console.log(canEdit);
+        //console.log(canEdit);
         if(!canEdit){
             submitBtn.hidden = true;
             cancelEditBtn.hidden = true;

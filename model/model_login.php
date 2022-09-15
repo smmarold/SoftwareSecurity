@@ -29,4 +29,14 @@ function login($userName, $userPassword){
         header("Location: errorPage.php");
     }
 }
+
+function generateRandomString() {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $string = '';
+    for ($i = 0; $i < 20; ++$i) {
+        $string .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $string;
+}
 ?>

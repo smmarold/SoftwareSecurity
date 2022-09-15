@@ -108,7 +108,7 @@
         searchTerm = searchField.value;
         filterTable(searchTerm);
     })
-    console.log(workOrderList);
+    //console.log(workOrderList);
 
     //The search input itself will call filter table each time a letter is input. 
     searchField.addEventListener('input', (e)=> {
@@ -160,23 +160,23 @@
         for(let i=0; i<workOrderList.length; i++){
             if(workOrderList[i].customerName.toUpperCase().includes(srchTerm.toUpperCase())){
                 filteredWorkOrders.push(workOrderList[i]);
-                console.log('Pushed:' + workOrderList[i].customerName)
+                // console.log('Pushed:' + workOrderList[i].customerName)
             }
             else if(workOrderList[i].woNum.toString().includes(srchTerm.toUpperCase())){
                 filteredWorkOrders.push(workOrderList[i]);
-                console.log('Pushed:' + workOrderList[i].woNum.toString());
+                // console.log('Pushed:' + workOrderList[i].woNum.toString());
 
             }
             else if(workOrderList[i].vesselManufacturer.toUpperCase().includes(srchTerm.toUpperCase())){
                 filteredWorkOrders.push(workOrderList[i]);
-                console.log('Pushed:' + workOrderList[i].vesselManufacturer);
+                // console.log('Pushed:' + workOrderList[i].vesselManufacturer);
 
             }
         }
         //Now that the serach term is filtered, further filter by stage key if it's selected. allows for combining search field and stage dropdown in search
         if(addStageFilter){
             filteredWorkOrders =  FilterByStage(filteredWorkOrders);
-            console.log('Got Here');
+            // console.log('Got Here');
         }
 
         if(filteredWorkOrders.length >0)

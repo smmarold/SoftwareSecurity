@@ -20,7 +20,7 @@
     }
 //Post Section ************************************************************************************************************************************
     //Page is separated in to 4 tables, plus info at top. 
-    if(filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'POST')
+    if(filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'POST' && $_SESSION['token'] == $_POST['sessionToken'])
     {
         $woNum = $_POST["woNumber"];
 
@@ -307,6 +307,7 @@
             <div>
                 <input type="hidden" id="hiddenAction" name="action" value="<?= $woDetials["vesselID"]; ?>"/>
                 <input type="hidden" id="customerID" name="customerID" value="<?= $woDetials["customerID"]; ?>"/>
+                <input type="hidden" id="sessionToken" name="sessionToken" value="<?= $_SESSION['token']; ?>"/>
             </div>
             <div class="column psiColumn">
                 <div class="text-start my-3 psiItem">
@@ -1051,7 +1052,7 @@
 
             datedItemsFinalValue[i] = datedItemsTable.rows[i].cells[2].childNodes[1].value + "," + datedItemsTable.rows[i].cells[3].childNodes[1].value + "," + datedItemsTable.rows[i].cells[4].childNodes[1].value + "," + datedItemsTable.rows[i].cells[5].childNodes[1].value + "," + checkboxValue;
             datSubmission += `<input type="text" name=${recordName[i]} value="${datedItemsFinalValue[i]}">`;
-            console.log(recordName[i] + datedItemsFinalValue[i]); 
+           // console.log(recordName[i] + datedItemsFinalValue[i]); 
         }
 
         return datSubmission;
@@ -1083,7 +1084,7 @@
             isSigned = true;
         }
         else{
-            console.log("Got Here");
+            // console.log("Got Here");
             sigDiv1.hidden = false;
             sigImg.hidden = true;
             isSigned = false;
@@ -1094,7 +1095,7 @@
             isSigned2 = true;
         }
         else{
-            console.log("Got Here 2");
+            //console.log("Got Here 2");
             sigDiv2.hidden = false;
             sigImg2.hidden = true;
             isSigned2 = false;
@@ -1158,12 +1159,12 @@
     }
 
     function fillComponentINS(){ //For INS filling
-        console.log("filling INS")
+        //console.log("filling INS")
         let compObj = <?= json_encode($componentValues); ?>;
         let parsedValues = [];
 
         for(let i = 0; i < componentTable.rows.length; i++){
-            console.log(componentTable.rows[i].cells[0].childNodes[0]);
+            //console.log(componentTable.rows[i].cells[0].childNodes[0]);
             Object.keys(compObj[0]).forEach(key => {
                 //parse here
                 if(key != "sheetID" && key != "woNum" && key != "userID_Sig2_Filepath" && key != "userID_Sig1_Filepath" && key != "userID_Sig2" && key != "userID_Sig1")

@@ -404,7 +404,7 @@
             isSigned = true; //this is checked on form submit to see if we have a new sig to save or not. 
         }
         else{
-            console.log("Got Here");
+            //console.log("Got Here");
             sigDiv1.hidden = false;
             sigImg.hidden = true;
             isSigned = false;
@@ -415,7 +415,7 @@
             isSigned2 = true;
         }
         else{
-            console.log("Got Here 2");
+            //console.log("Got Here 2");
             sigDiv2.hidden = false;
             sigImg2.hidden = true;
             isSigned2 = false;
@@ -555,7 +555,7 @@
             for(let n = 1; n < nameSplit.length; n++){
                 recordName[i] += nameSplit[n];
             }
-            console.log(recordName[i]);
+            //console.log(recordName[i]);
 
             componentsFinalValue[i] = radioValue + "," + componentTable.rows[i].cells[2].childNodes[1].value;
             comSubmission += `<input type="text" name=${recordName[i]} value="${componentsFinalValue[i]}">`; 
@@ -602,7 +602,7 @@
 
             datedItemsFinalValue[i] = datedItemsTable.rows[i].cells[1].childNodes[1].value + "," + datedItemsTable.rows[i].cells[2].childNodes[1].value + "," + datedItemsTable.rows[i].cells[3].childNodes[1].value + "," + datedItemsTable.rows[i].cells[4].childNodes[1].value;
             datSubmission += `<input type="text" name=${recordName[i]} value="${datedItemsFinalValue[i]}">`;
-            console.log(recordName[i] + datedItemsFinalValue[i]); 
+            //console.log(recordName[i] + datedItemsFinalValue[i]); 
         }
 
         return datSubmission;

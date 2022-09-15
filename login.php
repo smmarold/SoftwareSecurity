@@ -31,7 +31,7 @@
             //Put user id and account type in session
             $_SESSION['userID'] = $result['userID'];
             $_SESSION['accountType'] = $result['accountType'];
-            
+            $_SESSION['token'] = generateRandomString();            
             //Redirect to home page page
             header("Location: home.php");
         }
@@ -40,6 +40,7 @@
             $errorMsg = "&#10060; Invalid Account Information &#10060;";
         }
     }
+
 ?>
     <div id="mainDiv" class="container justify-content-center h-100">
         <form method="post">
